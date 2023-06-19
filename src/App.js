@@ -18,7 +18,7 @@ function App() {
       dice_array.push({
         id:nanoid(),
         value: Math.floor(Math.random() * (6 - 1 + 1) ) + 1,
-        isHeld: true
+        isHeld: false
       });
     }
     return dice_array
