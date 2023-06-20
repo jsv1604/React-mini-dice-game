@@ -42,6 +42,10 @@ function App() {
   return (
     <div className='outer'>
       <main>
+        <h1 className='title'>Tenzies</h1>
+        <p className='instructions'>
+          Roll Dice until all dice are the same. Click each one to freeze it at its current value between rolls.
+        </p>
         <div className="dice-container">
           
           {diceElements}
