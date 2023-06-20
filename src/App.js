@@ -31,9 +31,6 @@ function App() {
       if(allHeld && allValue )
       {
         setTenzies(true);
-        
-        console.log("You won!");
-
       }
     }
     
@@ -53,8 +50,17 @@ function App() {
     return dice_array
   }
 
+  function startNewGame(){
+    setDice(allNewDice());
+    setTenzies(false)
+  }
+
   function handleRollClick(event){
-    console.log(event.target.value)
+   event.target.value==="New Game" ? 
+   
+   
+   startNewGame()  :
+    
     setDice(oldDice => oldDice.map(x => {
       return(x.isHeld? x: {...x,value: Math.floor(Math.random() * (6 - 1 + 1) ) + 1})
     }))
@@ -78,9 +84,9 @@ function App() {
       <main>
         {tenzies && <ConfettiExplosion />}
         <h1 className='title'>Tenzies</h1>
-        <p className='instructions'>
+        {tenzies ? <h3> You Won!!!</h3> :<p className='instructions'>
           Roll Dice until all dice are the same. Click each one to freeze it at its current value between rolls.
-        </p>
+        </p>}
         <div className="dice-container">
           
           {diceElements}
