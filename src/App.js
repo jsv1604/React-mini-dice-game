@@ -26,11 +26,14 @@ function App() {
 
   function handleRollClick(){
 
-    setDice(allNewDice())
+    setDice(oldDice => oldDice.map(x => {
+      return(x.isHeld? x: {...x,value: Math.floor(Math.random() * (6 - 1 + 1) ) + 1})
+    }))
     
   }
 
   function holdDice(id){
+    console.log(id);
       setDice( oldDice => oldDice.map(x=>{
         return(x.id===id ? {...x,isHeld:!x.isHeld} : x)
       }))
